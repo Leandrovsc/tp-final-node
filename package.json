@@ -8,13 +8,21 @@
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "leandro ",
+  "author": "leandro",
   "license": "MIT",
-  "description": "",
+  "description": "Es la creacion de un crud con base de datos en firebase usando la libreria de firebase-admin y express. todo en base de  la tecnologia de node.js.\r ## Instalación\r 1. ``npm install`` para instalar las dependencias del proyecto.\r 2. ``npm start`` para iniciar el servidor.\r 3. Acceder a ``http://localhost:3300`` para ver la aplicación en funcionamiento",
   "devDependencies": {
     "nodemon": "^3.1.10"
   },
   "dependencies": {
     "express": "^5.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leandrovsc/tp-final-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Leandrovsc/tp-final-node/issues"
+  },
+  "homepage": "https://github.com/Leandrovsc/tp-final-node#readme"
 }
