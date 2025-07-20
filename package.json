@@ -1,28 +1,21 @@
 {
-  "name": "tp-final-node",
+  "name": "template-server-layers",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "leandro",
+  "author": "Daniel Riverol",
   "license": "MIT",
-  "description": "Es la creacion de un crud con base de datos en firebase usando la libreria de firebase-admin y express. todo en base de  la tecnologia de node.js.\r ## Instalación\r 1. ``npm install`` para instalar las dependencias del proyecto.\r 2. ``npm start`` para iniciar el servidor.\r 3. Acceder a ``http://localhost:3300`` para ver la aplicación en funcionamiento",
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  },
+  "type": "module",
+  "description": "Plantilla de servidor con capas ",
   "dependencies": {
     "express": "^5.1.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Leandrovsc/tp-final-node.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Leandrovsc/tp-final-node/issues"
-  },
-  "homepage": "https://github.com/Leandrovsc/tp-final-node#readme"
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }

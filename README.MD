@@ -1,40 +1,111 @@
-# TRABAJO FINAL DE LA ASIGNATURA
-## Introducción     
-Es la creacion de un crud con base de datos en firebase usando la libreria de firebase-admin y express. todo en base de  la tecnologia de node.js.
-## Instalación
-1. ``npm install`` para instalar las dependencias del proyecto.
-2. ``npm start`` para iniciar el servidor.
-3. Acceder a ``http://localhost:3300`` para ver la aplicación en funcionamiento
+# Plantilla de servidor con capas Express
 
-mi-proyecto-crud-node-firebase/
-├── node_modules/           # Módulos de Node.js (instalados con npm)
-├── src/                    # Código fuente 
-│   ├── config/             # Archivos de configuración
-│   │   ├── firebase.js     # Configuración de Firebase Admin SDK
-│   │   └── index.js        # Variables de entorno u otras configs generales
-│   │
-│   ├── controllers/        # Lógica de negocio (qué hacer con las peticiones)
-│   │   ├── authController.js   # Lógica para registro, login, token
-│   │   └── productController.js # Lógica para CRUD de productos (ejemplo)
-│   │
-│   ├── middlewares/        # Funciones que se ejecutan antes de los controladores
-│   │   └── authMiddleware.js   # Verificación de token JWT
-│   │
-│   ├── models/             # Modelos de datos (cómo se ven tus datos en Firestore)
-│   │   └── productModel.js     # Definición de un modelo de producto (ejemplo)
-│   │
-│   ├── routes/             # Definición de las rutas de tu API
-│   │   ├── authRoutes.js       # Rutas para autenticación (login, registro)
-│   │   └── productRoutes.js    # Rutas para CRUD de productos
-│   │
-│   ├── services/           # Lógica para interactuar con Firebase/otras APIs externas
-│   │   ├── authService.js      # Servicios de autenticación (Firebase Auth)
-│   │   └── firestoreService.js # Funciones para interactuar con Firestore
-│   │
-│   └── app.js              # Archivo principal de tu aplicación Express
+Este proyecto es una plantilla básica para configurar un servidor con **Express** y **Nodemon**, ideal para iniciar rápidamente nuevos desarrollos en Node.js.
+
+## Características
+
+- **Express** para gestionar rutas y middleware.
+- **Nodemon** para recargar automáticamente el servidor durante el desarrollo.
+- Configuración minimalista lista para usar.
+
+---
+
+## Instalación
+
+### 1. Clonar el repositorio con `degit`
+
+`degit` es una herramienta para clonar plantillas de manera limpia (sin el historial de Git).
+
+#### Instalar `degit` (si no lo tienes instalado)
+
+```bash
+npm install -g degit
+```
+
+#### Clonar el repositorio
+
+```bash
+degit DanielRiverol/template-express-layers carpeta-destino
+```
+
+Reemplaza `usuario/repo-nombre` por el nombre del repositorio y `carpeta-destino` por el nombre de la carpeta donde deseas clonar el proyecto.
+
+### 2. Instalar dependencias
+
+Una vez clonado el repositorio, entra en la carpeta del proyecto:
+
+```bash
+cd carpeta-destino
+```
+
+Luego, instala las dependencias:
+
+```bash
+npm install
+```
+
+---
+
+## Comandos disponibles
+
+### Iniciar el servidor
+
+Este comando inicia el servidor en modo desarrollo con Nodemon:
+
+```bash
+npm run dev
+```
+
+### Actualizar dependencias (Opcional)
+
+Para poder todas estas dependencias a su última versión, deberás instalar un paquete llamado `npm-check-updates` de forma global:
+
+```bash
+npm install -g npm-check-updates
+```
+
+Una vez instalado deberás correr el siguiente comando:
+
+```bash
+ncu -u
+```
+
+Esto modificará tu archivo package.json para que todas las dependencias estén listadas en sus últimas versiones.
+
+Una vez completado este proceso, basta con ejecutar el siguiente comando para actualizar todas tus dependencias:
+
+```bash
+npm install
+```
+
+## Estructura del proyecto
+``` plaintext
+carpeta-destino/
+├── config/                 # Configuraciones generales (DB, variables de entorno, etc.)
+│   └── db.js               # Configuración de la base de datos
 │
-├── .env                    # Variables de entorno (¡NO SUBIR A GIT!)
-├── .gitignore              # Archivo para ignorar carpetas y archivos en Git
-├── package.json            # Información del proyecto y dependencias
-├── package-lock.json       # Bloqueo de dependencias (generado por npm)
-└── README.md               # Documentación del proyecto
+├── controllers/           # Controladores: lógica que responde a las rutas
+│   └── user.controller.js
+│
+├── services/              # Servicios: lógica de negocio reutilizable
+│   └── user.service.js
+│
+├── routes/                # Definición de rutas y middlewares asociados
+│   └── user.routes.js
+│
+├── models/                # Modelos de datos (si usás MongoDB, Sequelize, etc.)
+│   └── user.model.js
+│
+├── middlewares/           # Middlewares personalizados
+│   └── auth.middleware.js
+│
+├── index.js               # Punto de entrada del servidor
+├── package.json           # Dependencias y scripts
+├── README.md              # Documentación del proyecto
+
+```
+---
+
+## Licencia
+
+Este proyecto está licenciado bajo la licencia **MIT**. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
