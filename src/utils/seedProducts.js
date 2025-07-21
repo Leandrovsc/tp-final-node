@@ -1,10 +1,12 @@
 // data/productsFaker.js
 import { faker } from '@faker-js/faker'; // Importa la librería faker
-import {createProductSeed} from '../services/products.Services.js'; // Importa la función para crear productos
+import {productsServices} from '../services/products.Services.js'; // Importa la función para crear productos
 import db from '../config/db.js'; // Importa la base de datos de productos
 
 // Genera productos falsos para simular una base de datos
-// generateproducts recibe un numero y genera esa cantidad de productos
+// generProducts recibe un numero de productos a generar
+// y los agrega a la base de datos
+
 function generateProducts(numProducts) {
   const products = [];
   for (let i = 0; i < numProducts; i++) {
@@ -14,17 +16,16 @@ function generateProducts(numProducts) {
       precio: parseFloat(faker.commerce.price()),
       stock: faker.number.int({ min: 1, max: 100 }),
       descripcion: faker.commerce.productDescription(),
-    };
-    products.push(product);
+    }
+    products.push(product)
   }
-
-  // Asigna los productos generados a la base de datos
-  db.push(...products);
+  console.log(products)
+  //agrego a la base de datos de productos en db.js
+  products.forEach(product => {
+    productsServices.createProduct(product);
+  });
   
-  // Llama al servicio para crear los productos
-  products.forEach(product => createProductSeed(product));
 }
-generateProducts(5)
 
 
 export default generateProducts;

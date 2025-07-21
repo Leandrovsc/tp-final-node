@@ -13,5 +13,15 @@ const createProduct = (req, res) => {
     }
 }
 
+//creo el CreateSeedProduct
+const createSeedProduct= (req, res) => {
+    const cantidad = req.params.cantidad 
+    try {
+        const products = productsServices.createSeedProduct(cantidad)
+        res.status(201).json({message: "Products created successfully", products})
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
 
-export const productsController={ getUsers, createProduct };
+export const productsController={ getUsers, createProduct ,createSeedProduct};
