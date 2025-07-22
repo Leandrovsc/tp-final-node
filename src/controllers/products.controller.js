@@ -24,4 +24,15 @@ const createSeedProduct= (req, res) => {
     }
 }
 
-export const productsController={ getUsers, createProduct ,createSeedProduct};
+//creo el controllador para obtener los productos de la base de datos con getall
+const getallProducts = (req,res) =>{
+    try {
+        const products = productsServices.getall()
+        res.status(200).json(products)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+}
+
+export const productsController=
+{ getUsers, createProduct ,createSeedProduct,getallProducts };

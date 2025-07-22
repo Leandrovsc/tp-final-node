@@ -11,7 +11,7 @@ const createProduct= (product) => {
     product.descripcion,
     )
     console.log(newProduct)//veo el producto creado
-    return db.push(newProduct)
+    return db.productsdb.push(newProduct)
 }
 
 const createSeedProduct= (cantidad) => {
@@ -19,6 +19,8 @@ const createSeedProduct= (cantidad) => {
     return seed(cantidad)
 }
 
+const getall=()=>{
+    return db.productsdb
+}
 
-
-export const  productsServices = { createProduct , createSeedProduct }
+export const  productsServices = { createProduct , createSeedProduct,getall}

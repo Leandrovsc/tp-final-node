@@ -1,7 +1,7 @@
 // data/productsFaker.js
 import { faker } from '@faker-js/faker'; // Importa la librería faker
 import {productsServices} from '../services/products.Services.js'; // Importa la función para crear productos
-import db from '../config/db.js'; // Importa la base de datos de productos
+
 
 // Genera productos falsos para simular una base de datos
 // generProducts recibe un numero de productos a generar
