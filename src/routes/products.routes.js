@@ -7,5 +7,6 @@ const router = Router()
 router.post("/create",controller.createProduct)
 router.post("/seed/:cantidad", controller.createSeedProduct)
 router.get("", controller.getallProducts)
+router.get("/:id", controller.productsById)
 // Export the router
 export default router

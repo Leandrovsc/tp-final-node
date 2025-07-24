@@ -24,7 +24,7 @@ const createSeedProduct= (req, res) => {
     }
 }
 
-//creo el controllador para obtener los productos de la base de datos con getall
+// controllador para obtener los productos de la base de datos con getall
 const getallProducts = (req,res) =>{
     try {
         const products = services.getall()
@@ -34,6 +34,27 @@ const getallProducts = (req,res) =>{
     }
 }
 
+// controllador para obtener productos por id
+
+const  productsById =(req,res)=>{
+        const id =req.params.id
+        //aca veo si el id es valido
+        if (!id || id===" "){
+            res.status(400).json({message: "Invalid ID"})
+            return 
+        }
+    try {
+        const productId= services.getById(id)
+        if (!productId) {
+            res.status(404).json({message: "Product not found"})
+            return
+        }else {
+            res.status(200).json(productId)
+        }
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+}
 
 export const controller=
-{ getUsers, createProduct ,createSeedProduct,getallProducts };
+{ getUsers, createProduct ,createSeedProduct,getallProducts , productsById};

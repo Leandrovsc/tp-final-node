@@ -23,6 +23,14 @@ const getall=()=>{
     return db.productsdb
 }
 
+const getById=(id)=>{
+    const product= db.productsdb.find((product) => product.id === id)
+    if (!product) { 
+        throw new Error("Product not found")
+    } 
+    return product
+}
 
 
-export default { createProduct , createSeedProduct,getall}
+
+export default { createProduct , createSeedProduct,getall,getById}
