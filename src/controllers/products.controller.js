@@ -34,5 +34,6 @@ const getallProducts = (req,res) =>{
     }
 }
 
+
 export const productsController=
 { getUsers, createProduct ,createSeedProduct,getallProducts };

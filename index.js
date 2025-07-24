@@ -12,9 +12,13 @@ app.use(express.static(join(__dirname, "public")))
 
 //routes
 app.get("/", (req, res) => {
-  res.json({ title: "Home Page" }); 
+  res.json({ title: "Home Page apis app" }); 
 });
 app.use("/api/products", productsRoutes)
+
+app.use("",(req,res)=>{
+  res.sendStatus(404).json({message: "Not Found"})
+})
 
 //listeners
 app.listen(app.get("PORT"), () => {
