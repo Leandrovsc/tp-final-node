@@ -23,4 +23,6 @@ const getall=()=>{
     return db.productsdb
 }
 
-export const  productsServices = { createProduct , createSeedProduct,getall}
+
+
+export default { createProduct , createSeedProduct,getall}

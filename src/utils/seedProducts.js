@@ -1,6 +1,6 @@
 // data/productsFaker.js
 import { faker } from '@faker-js/faker'; // Importa la librería faker
-import {productsServices} from '../services/products.Services.js'; // Importa la función para crear productos
+import services from '../services/products.Services.js'; // Importa la función para crear productos
 
 
 // Genera productos falsos para simular una base de datos
@@ -22,7 +22,7 @@ function generateProducts(numProducts) {
   console.log(products)
   //agrego a la base de datos de productos en db.js
   products.forEach(product => {
-    productsServices.createProduct(product);
+    services.createProduct(product);
   });
   
 }

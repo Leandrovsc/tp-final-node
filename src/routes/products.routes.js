@@ -1,11 +1,11 @@
 import { Router } from "express" 
-import {productsController} from "../controllers/products.controller.js"
+import {controller} from "../controllers/products.controller.js"
 
 const router = Router()
 
 //defino las rutas para crear un producto
-router.post("/create",productsController.createProduct)
-router.post("/seed/:cantidad", productsController.createSeedProduct)
-router.get("", productsController.getallProducts)
+router.post("/create",controller.createProduct)
+router.post("/seed/:cantidad", controller.createSeedProduct)
+router.get("", controller.getallProducts)
 // Export the router
 export default router

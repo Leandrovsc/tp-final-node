@@ -1,12 +1,12 @@
 // controller
-import {productsServices} from '../services/products.Services.js'
+import services from '../services/products.Services.js'
 
 const getUsers = (req, res) => {};
 
 const createProduct = (req, res) => {
     const {name,precio,stock,descripcion} = req.body
     try {
-        const newProduct = productsServices.createProduct({name,precio,stock,descripcion})
+        const newProduct = services.createProduct({name,precio,stock,descripcion})
         res.status(201).json({message: "Product created successfully", product: newProduct})
     } catch (error) {
         res.status(500).json({ message: error.message })
@@ -17,7 +17,7 @@ const createProduct = (req, res) => {
 const createSeedProduct= (req, res) => {
     const cantidad = req.params.cantidad 
     try {
-        const products = productsServices.createSeedProduct(cantidad)
+        const products = services.createSeedProduct(cantidad)
         res.status(201).json({message: "Products created successfully", products})
     } catch (error) {
         res.status(500).json({ message: error.message })
@@ -27,7 +27,7 @@ const createSeedProduct= (req, res) => {
 //creo el controllador para obtener los productos de la base de datos con getall
 const getallProducts = (req,res) =>{
     try {
-        const products = productsServices.getall()
+        const products = services.getall()
         res.status(200).json(products)
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -35,5 +35,5 @@ const getallProducts = (req,res) =>{
 }
 
 
-export const productsController=
+export const controller=
 { getUsers, createProduct ,createSeedProduct,getallProducts };
