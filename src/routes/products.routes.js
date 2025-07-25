@@ -8,5 +8,6 @@ router.post("/create",controller.createProduct)
 router.post("/seed/:cantidad", controller.createSeedProduct)
 router.get("", controller.getallProducts)
 router.get("/:id", controller.productsById)
+router.delete("/:id", controller.deleteProductById)
 // Export the router
 export default router

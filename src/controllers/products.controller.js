@@ -55,6 +55,20 @@ const  productsById =(req,res)=>{
         res.status(500).json({message: error.message})
     }
 }
+// controlador para eliminar un producto por id
+const deleteProductById = (req, res) => {
+    const id = req.params.id
+    // Verifica si el ID es válido
+    if (!id || id === " ") {
+        res.status(400).json({message: "Invalid ID"})
+}
+try {
+    const deletedProduct = services.deleteById(id)
+        res.status(200).json({message: "Product deleted successfully", product: deletedProduct})
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+}
 
 export const controller=
-{ getUsers, createProduct ,createSeedProduct,getallProducts , productsById};
+{ getUsers, createProduct ,createSeedProduct,getallProducts , productsById, deleteProductById }

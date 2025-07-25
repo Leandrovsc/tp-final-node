@@ -30,7 +30,14 @@ const getById=(id)=>{
     } 
     return product
 }
+const deleteById=(id)=>{
+    const somthingToDelete = db.productsdb.find(product => product.id === id)
 
-
-
-export default { createProduct , createSeedProduct,getall,getById}
+    if (!somthingToDelete) {    
+        throw new Error("Product not found")
+    }
+    else {
+        return somthingToDelete
+    }
+}
+export default { createProduct , createSeedProduct,getall,getById,deleteById }
